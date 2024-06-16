@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { person } from '../types/person';
 
 @Component({
   selector: 'app-person-list',
@@ -50,6 +51,8 @@ export class PersonListComponent {
 
 removeperson(id : number):void{
   this.person.splice(id,1);
+  // this.person.filter((a) => {a.id !== id; return a;})
+  console.log(this.person)
 }
 
 Addperson() : void{
@@ -72,9 +75,9 @@ Addperson() : void{
 
   if(flag){
     this.person.push({
+      id: this.getinccount(),
       fname: this.fname,
       lname: this.lname,
-      id: this.getinccount(),
       role: this.role
     })
   }
@@ -116,11 +119,3 @@ sortdscrole():void{
 
 }
 
-type NewType = {
-  id: number;
-  fname: string;
-  lname: string;
-  role: string;
-};
-
-type person  = NewType

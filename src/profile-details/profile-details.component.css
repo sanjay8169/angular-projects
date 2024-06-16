@@ -1,0 +1,8 @@
+.slide-show{
+    display: flex;
+
+}
+
+.slide-hide{
+    display: none;
+}
