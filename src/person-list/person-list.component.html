@@ -1,1 +1,71 @@
-<p>person-list works!</p>
+<div class="container justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card-custom m-3">
+        <div class="row g-3 justify-content-center">
+            <div class="row m-2 title text-center"  >
+                <h2>Please Enter Your Details</h2>
+            </div>
+            <div class="row m-2 title">
+                <label class="form-label" for="">First Name</label>
+                <input class="form-control" type="text" placeholder="please enter first name" [(ngModel)] = "fname">
+            </div>
+            <div class="row m-2 title">
+                <label class="form-label" for="">Last Name</label>
+                <input class="form-control" type="text" placeholder="please enter last name" [(ngModel)] = "lname">
+            </div>
+            <div class="row m-3 title">
+                <label class="form-label" for="">Role</label>
+                <input class="form-control" type="text" placeholder="please enter role" [(ngModel)]="role">
+            </div>
+            <div class="row m-3 text-center">
+                <button class="btn title" (click)="Addperson()"><h4>Add</h4></button>
+            </div>
+            <div class="row m-3 text-center">
+                <span>{{error}}</span>
+            </div>
+            
+        </div>
+    </div>
+    <div class="card-custom text-center m-3">
+        <div class="row">
+            <div class="col-3">
+                <button class="btn" (click)="sortascfname()" (dblclick)="sortdscfname()">
+                    First Name
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"/>
+                  </svg>
+              </button>      
+            </div>
+            <div class="col-3">
+                <button class="btn" (click)="sortasclname()" (dblclick)="sortdsclname()">
+                    Last Name
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"/>
+                  </svg>
+              </button>      
+            </div>
+            <div class="col-3">
+                <button class="btn" (click)="sortascrole()" (dblclick)="sortdscrole()">
+                    Role
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"/>
+                  </svg>
+              </button>      
+            </div>
+        </div>
+        <div class="row text-block">
+  
+            @for (item of person; track item.id) {
+                <div class="col-3">{{item.fname}}</div>
+                <div class="col-3">{{item.lname}}</div>
+                <div class="col-3">{{item.role}}</div>
+                <div class="col-3">
+                    <button class="btn" (click)="removeperson(item.id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                  </svg></button>
+                </div>
+            }
+  
+        </div>
+            </div>
+  </div>

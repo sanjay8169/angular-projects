@@ -1,0 +1,27 @@
+.card-custom {
+    background-color: #f96e6e;
+    /* color: white; */
+    padding: 20px;
+    border-radius: 15px;
+    /* width: 300px; */
+}
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.title, .subtitle, .text-block {
+    background-color: #ffb2b2;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+/* .title, .text-block-large {
+    width: 100%;
+} */
+.subtitle, .text-block-small {
+    width: 60%;
+}
