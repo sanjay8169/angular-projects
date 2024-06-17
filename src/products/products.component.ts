@@ -10,5 +10,6 @@ import { product } from '../types/product.type';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
-  @Input() product : string  = "hello";
+  @Input() para : string | undefined;
+  data :string = "hey"
 }

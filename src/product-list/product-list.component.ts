@@ -13,13 +13,13 @@ import { AppComponent } from '../app/app.component';
 export class ProductListComponent {
 
   count : number  = 0;
-
+  para  : string = "hii welcome";
   incrementcount():number{
     return this.count++;
   }
 
-  para  : string = "hii welcome";
-
+  
+/*
  products : any[] = [{
    id: this.incrementcount(),
    name: 'Formal Shirt',
@@ -44,5 +44,5 @@ export class ProductListComponent {
   category: 'Laptop',
   discount: 40
 }];
- 
+ */
 }
